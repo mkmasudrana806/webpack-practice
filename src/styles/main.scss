@@ -3,3 +3,23 @@ h1 {
   color: green;
   font-weight: bold;
 }
+
+#quote {
+  background-color: cadetblue;
+  padding: 20px;
+
+  margin: 0 auto;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: beige;
+  border: none;
+  border-radius: 50px;
+  margin-top: 20px;
+}
+
+.quotes {
+  width: 50%;
+  margin: 0 auto;
+}

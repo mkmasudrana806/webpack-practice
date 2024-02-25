@@ -123,6 +123,44 @@ inside output, set clean property as true. clear: true;
 Note: source map help us to debugging.simply add devtool: 'source-map' property to webpack.config.js
 */
 
+// bable-loader and assets management like images management
+// *********** Step 5 ***********
+/*
+=> install babel-loader
+npm install -D babel-loader @babel/core @babel/preset-env webpack
+=> add a rule inside rules array
+ rules: [
+    {
+      test: /\.(?:js|mjs|cjs)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            ['@babel/preset-env', { targets: "defaults" }]
+          ]
+        }
+      }
+    }
+  ]
+
+=> add assets management rule inside rules array
+ {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+  },
+
+=> add assetModuleFilename property inside output property
+  output: {
+    filename: "[name].[contenthash].js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
+    assetModuleFilename: "[name][ext]",
+  },
+
+=> 
+*/
+
 /*
 Project folder Structure:
 webpack
