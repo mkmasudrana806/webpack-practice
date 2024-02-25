@@ -9,6 +9,7 @@ npm init -y
 npm i -D webpack webpack-cli
 */
 
+// configure webpack.config.js file to JS Module
 // *********** Step 2 ***********
 /*
 => create webpack.config.js file and configure with it
@@ -124,7 +125,7 @@ Note: source map help us to debugging.simply add devtool: 'source-map' property 
 */
 
 // bable-loader and assets management like images management
-// *********** Step 5 ***********
+// *********** Step 6 ***********
 /*
 => install babel-loader
 npm install -D babel-loader @babel/core @babel/preset-env webpack
@@ -157,8 +158,27 @@ npm install -D babel-loader @babel/core @babel/preset-env webpack
     clean: true,
     assetModuleFilename: "[name][ext]",
   },
+*/
 
-=> 
+// webpack bundle analyzer
+// *********** Step 7 ***********
+/*
+ => install webpack-bundle-analyzer plugin
+ npm i -D webpack-bundle-analyzer
+ => require 'webpack-bundle-analyzer' 
+ const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+=> configure plugin
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "Webpack Practice",
+      filename: "index.html",
+      template: "src/template.html",
+    }),
+    new BundleAnalyzerPlugin(),
+  ],
+
+=> npm run dev to see analyzer. stop it otherwise project will not run
 */
 
 /*

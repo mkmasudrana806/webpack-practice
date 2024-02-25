@@ -50,7 +50,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `h1 {
 #quote {
   background-color: cadetblue;
   padding: 20px;
-  width: 50%;
   margin: 0 auto;
 }
 
@@ -59,11 +58,13 @@ button {
   background-color: beige;
   border: none;
   border-radius: 50px;
+  margin-top: 20px;
 }
 
 .quotes {
-  border: 1px solid red;
-}`, "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,YAAA;EACA,iBAAA;AACF;;AAEA;EACE,2BAAA;EACA,aAAA;EACA,UAAA;EACA,cAAA;AACF;;AAEA;EACE,kBAAA;EACA,uBAAA;EACA,YAAA;EACA,mBAAA;AACF;;AAEA;EACE,qBAAA;AACF","sourcesContent":["h1 {\r\n  text-align: center;\r\n  color: green;\r\n  font-weight: bold;\r\n}\r\n\r\n#quote {\r\n  background-color: cadetblue;\r\n  padding: 20px;\r\n  width: 50%;\r\n  margin: 0 auto;\r\n}\r\n\r\nbutton {\r\n  padding: 10px 20px;\r\n  background-color: beige;\r\n  border: none;\r\n  border-radius: 50px;\r\n}\r\n\r\n.quotes {\r\n  border: 1px solid red;\r\n}\r\n"],"sourceRoot":""}]);
+  width: 50%;
+  margin: 0 auto;
+}`, "",{"version":3,"sources":["webpack://./src/styles/main.scss"],"names":[],"mappings":"AAAA;EACE,kBAAA;EACA,YAAA;EACA,iBAAA;AACF;;AAEA;EACE,2BAAA;EACA,aAAA;EAEA,cAAA;AAAF;;AAGA;EACE,kBAAA;EACA,uBAAA;EACA,YAAA;EACA,mBAAA;EACA,gBAAA;AAAF;;AAGA;EACE,UAAA;EACA,cAAA;AAAF","sourcesContent":["h1 {\r\n  text-align: center;\r\n  color: green;\r\n  font-weight: bold;\r\n}\r\n\r\n#quote {\r\n  background-color: cadetblue;\r\n  padding: 20px;\r\n\r\n  margin: 0 auto;\r\n}\r\n\r\nbutton {\r\n  padding: 10px 20px;\r\n  background-color: beige;\r\n  border: none;\r\n  border-radius: 50px;\r\n  margin-top: 20px;\r\n}\r\n\r\n.quotes {\r\n  width: 50%;\r\n  margin: 0 auto;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4755,6 +4756,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const quoteEl = document.getElementById("quote");
+const generateQuoteBtn = document.getElementById("generateQuoteBtn");
 
 // initial call a quote
 (async () => {
@@ -4767,8 +4769,18 @@ const quoteEl = document.getElementById("quote");
 // set background image
 const body = document.getElementById("main");
 body.style.backgroundImage = `url(${__webpack_require__(/*! ./assets/img.jpg */ "./src/assets/img.jpg")})`;
+
+// generate a new quote
+generateQuoteBtn.addEventListener("click", () => {
+  (async () => {
+    try {
+      const quote = await (0,_generateQuote__WEBPACK_IMPORTED_MODULE_1__["default"])();
+      quoteEl.innerHTML = quote.quote;
+    } catch (error) {}
+  })();
+});
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle.aa1ee7813ff995fd0219.js.map
+//# sourceMappingURL=bundle.55f7e30d9b0b30da0aaf.js.map
