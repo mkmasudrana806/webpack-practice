@@ -86,6 +86,43 @@ npm i -D html-webpack-plugin
 use contenthash
 */
 
+// dev server setup to auto reload each time
+// *********** Step 5 ***********
+/*
+=> write a dev script inside package.json file
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve"
+  },
+
+=> install webpack-dev-server
+npm install -D webpack-dev-server
+
+=> then press y. now this project will by default run at 8080 port. we can change it inside webpack.config.js file
+
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, "dist"),
+    },
+    port: 3000, // localhost port
+    open: true, // always open true
+    hot: true, // hot reloading true
+    compress: true, // compress
+    historyApiFallback: true,
+  },
+
+=> disabled each time bundling creating while any changes is occur inside entry point.
+inside output, set clean property as true. clear: true; 
+
+  output: {
+    filename: "[name].[contenthash].js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
+  },
+
+Note: source map help us to debugging.simply add devtool: 'source-map' property to webpack.config.js
+*/
+
 /*
 Project folder Structure:
 webpack
