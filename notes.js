@@ -31,6 +31,38 @@ Note: later we will see dynamic filename and multiple entry files.
 */
 
 // => above configuration is enough for just js bundling. we need babel transpiler loader to bundle all js files.
+
+// *********** Step 3 ***********
+/*
+=> install sass loader with css loader
+npm i -D sass style-loader css-loader sass-loader
+
+=> include loader configuration and dynamic entry point
+
+module.exports = {
+  mode: "development",
+  entry: {
+    bundle: path.resolve(__dirname, "src/index.js"),
+  },
+  output: {
+    filename: "[name].js",
+    path: path.resolve(__dirname, "dist"),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ],
+  },
+};
+
+
+*/
+
+
+
 /*
 Project folder Structure:
 webpack
